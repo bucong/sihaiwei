@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!--<keep-alive>-->
+      <router-view/>
+    <!--</keep-alive>-->
   </div>
 </template>
 
 <script>
-import { Header } from 'mint-ui';
 export default {
   name: 'app'
 }
@@ -14,14 +15,13 @@ export default {
 <style>
 body{
 	margin: 0;
+  background: #eee;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: PingFangSC-Regular, 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-}
-.mint-header{
-	background: #41b883;
+  margin: 0 auto;
+  width: 3.75rem;
 }
 </style>

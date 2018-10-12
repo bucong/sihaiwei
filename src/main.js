@@ -7,10 +7,11 @@ import App from './App'
 import router from './router'
 import './assets/js/fontSize'
 import './assets/css/reset.css'
+// import './assets/font/iconfont.css'
+import './assets/css/style.css'
+Vue.use(MintUI);
 
-Vue.use(MintUI)
-
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
@@ -18,4 +19,4 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
-})
+});

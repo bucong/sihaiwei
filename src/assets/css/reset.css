@@ -1,13 +1,13 @@
 @charset "utf-8";
 /*样式重置*/
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,
-form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;font-family:PingFangSC-Regular;}
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video{display: block;margin: 0;padding: 0;}
 body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53;}
-h1,h2,h3,h4,h5,h6{font-size:100%;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight: 500;}
 address,cite,dfn,em,var{font-style:normal;}
 code,kbd,pre,samp{font-family:courier,courier,monospace;}
 li{list-style:none;}
@@ -20,3 +20,22 @@ table{border-collapse:collapse;border-spacing:0;}
 .fr{float: right;}
 .clear{clear: both;}
 .flex{display: flex;justify-content: space-between;align-items: center;}
+@font-face {
+  font-family: 'iconfont';  /* project id 490101 */
+  src: url('//at.alicdn.com/t/font_490101_sj2y7gtu6r.eot');
+  src: url('//at.alicdn.com/t/font_490101_sj2y7gtu6r.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_490101_sj2y7gtu6r.woff') format('woff'),
+  url('//at.alicdn.com/t/font_490101_sj2y7gtu6r.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_490101_sj2y7gtu6r.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*修改mint-ui弹框*/
+.mint-msgbox{
+  width: 2.8rem;
+}

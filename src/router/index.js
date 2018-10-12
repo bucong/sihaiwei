@@ -1,26 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const Home = () => import('@/views/home');
-const Love = () => import('@/views/love');
-const Error = () => import('@/views/error');
+
+//个人中心
+const Charge = () => import('@/views/pay/charge');
+
+const Error = () => import('@/views/public/error');
 
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
+  base: '/jnwtv-pay-h5/',
   routes: [
     {
+      path: '/charge',
+      name: 'charge',
+      component: Charge
+    },
+    {
       path: '/',
-      name: 'home',
-      component: Home
-    },{
-      path: '/love',
-      name: 'love',
-      component: Love
-    },{
-		  path: '*',
-		  name: 'error',
-		  component: Error
-		}
+      redirect: '/charge'
+    },
+    {
+      path: '*',
+      name: 'error',
+      component: Error
+    }
   ]
 })
