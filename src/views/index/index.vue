@@ -1,6 +1,7 @@
 <template>
   <div class="contain">
-
+    <h2>点餐首页</h2>
+    <router-link to="/admin">后台管理系统</router-link>
   </div>
 </template>
 
@@ -15,7 +16,11 @@ export default {
     }
   },
   created(){
+    fetch('get', 'user', {
+      account: '17621960934'
+    }, (res)=>{
 
+    })
   },
   methods:{
 

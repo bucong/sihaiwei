@@ -8,7 +8,7 @@
         if(domWidth / v > 540){
             domWidth = 540 * v;
         }
-        win.rem = domWidth / 3.75;
+        win.rem = domWidth / 7.5;
         /*windows的rem值*/
         domEle.style.fontSize = win.rem + "px";
         /*html:font-size=150px*/

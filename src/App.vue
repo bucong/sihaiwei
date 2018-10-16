@@ -15,13 +15,13 @@ export default {
 <style>
 body{
 	margin: 0;
-  background: #eee;
+  background: #fff;
 }
 #app {
   font-family: PingFangSC-Regular, 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0 auto;
-  width: 3.75rem;
+  width: 7.5rem;
 }
 </style>
