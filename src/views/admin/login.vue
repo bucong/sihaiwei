@@ -42,7 +42,7 @@ export default {
           account: this.account,
           password: this.password
         }, (res)=>{
-          handleLocalStorage('set', 'userInfo', JSON.stringify(res));
+          handleLocalStorage('set', 'adminInfo', JSON.stringify(res));
           this.$router.push({path: '/admin'});
         })
       }

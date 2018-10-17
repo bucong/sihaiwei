@@ -1,6 +1,6 @@
 <template>
   <div class="error contain">
-    <img src="http://qiniu.jnwtv.com/H520180822134921559800889.png" alt="">
+    <img src="../../../static/img/logo/logo.png" alt="">
     <p>{{msg}}</p>
     <router-link to="/">返回首页</router-link>
   </div>
@@ -23,24 +23,24 @@ export default {
 
 <style scoped lang="scss">
 .error{
-	padding: .5rem 0;
+	padding: 1rem 0;
 	text-align: center;
 	img{
-    width: 1rem;
+    width: 2rem;
   }
 	a{
-		font-size: .16rem;
+		font-size: .32rem;
     display: block;
     margin: 0 auto;
-    width: 2rem;
-    line-height: .4rem;
-    background: #18ac16;
-    border-radius: .06rem;
+    width: 4rem;
+    line-height: .8rem;
+    background: #ffc107;
+    border-radius: .12rem;
     color: #fff;
 	}
 	p{
-		font-size: .16rem;
-		margin: .3rem;
+		font-size: .31rem;
+		margin: .6rem;
 	}
 }
 </style>

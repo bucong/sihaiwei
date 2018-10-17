@@ -24,7 +24,7 @@ export function fetch (method, url, data, cb) {
       method: 'get'
     }).then((res) => {
       Indicator.close();
-      console.log(res.data);
+      console.log(JSON.parse(JSON.stringify(res.data)));
       let data = res.data;
       if(data.code === 0){
         cb(data.data);
@@ -44,7 +44,7 @@ export function fetch (method, url, data, cb) {
       data: data
     },{timeout: 5000}).then((res) => {
       Indicator.close();
-      console.log(res.data);
+      console.log(JSON.parse(JSON.stringify(res.data)));
       let data = res.data;
       if(data.code === 0){
         cb(data.data);
