@@ -59,6 +59,11 @@ export default {
         this.$router.push({path: '/order'});
       })
     }
+    handleLocalStorage('set', 'userInfo', JSON.stringify({
+      id: 3,
+      name: '聪哥',
+      figureurl: 'http://qzapp.qlogo.cn/qzapp/101479867/2807A306B0445956F956F2E29815E0B9/30'
+    }));
   }
 }
 </script>

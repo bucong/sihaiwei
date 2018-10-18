@@ -5,10 +5,14 @@ import { thirdLogin } from '@/util/thirdLogin';
 //点餐
 const Index = () => import('@/views/index/index');
 const Order = () => import('@/views/index/order');
+const Detail = () => import('@/views/index/detail');
+const MyOrder = () => import('@/views/index/myOrder');
 
 //后台管理
 const Admin = () => import('@/views/admin/index');
 const AdminHome = () => import('@/views/admin/home');
+const AdminCommodity = () => import('@/views/admin/commodity');
+const AdminAdd = () => import('@/views/admin/add');
 const adminLogin = () => import('@/views/admin/login');
 
 const Error = () => import('@/views/public/error');
@@ -23,8 +27,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index
-    },
-    {
+    }, {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
+    }, {
       path: '/order',
       name: 'order',
       component: Order,
@@ -36,6 +43,10 @@ export default new Router({
           thirdLogin();
         }
       }
+    }, {
+      path: '/myOrder',
+      name: 'myOrder',
+      component: MyOrder
     },
     //后台管理系统
     {
@@ -55,6 +66,14 @@ export default new Router({
               next({path: '/admin/login'})
             }
           }
+        }, {
+          path: 'commodity',
+          name: 'commodity',
+          component: AdminCommodity
+        }, {
+          path: 'add',
+          name: 'add',
+          component: AdminAdd
         }
       ]
     }, {

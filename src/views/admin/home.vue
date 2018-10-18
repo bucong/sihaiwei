@@ -1,6 +1,6 @@
 <template>
   <div class="admin-home">
-    <h1>后台管理</h1>
+    <h1>订单</h1>
   </div>
 </template>
 
