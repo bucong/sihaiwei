@@ -22,7 +22,7 @@
 <script>
 import { Toast } from 'mint-ui';
 import { fetch } from '@/util/fetch';
-import { handleLocalStorage } from '@/util/common';
+import { handleLocalStorage, changeTitle } from '@/util/common';
 export default {
   name: "admin-login",
   data(){
@@ -30,6 +30,9 @@ export default {
       account: '',
       password: ''
     }
+  },
+  created(){
+    changeTitle('管理员登陆');
   },
   methods:{
     sub(){

@@ -5,9 +5,21 @@
 </template>
 
 <script>
-  export default {
-    name: "admin-home"
+import { changeTitle } from '@/util/common';
+export default {
+  name: "admin-home",
+  data(){
+    return {
+
+    }
+  },
+  created(){
+    changeTitle('订单管理');
+  },
+  methods:{
+
   }
+}
 </script>
 
 <style scoped>

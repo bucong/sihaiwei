@@ -20,7 +20,7 @@
       <div v-if="evaluate.length > 0" class="evaluate-list">
         <ul>
           <li v-for="item in evaluate">
-            <img :src="item.userFigure" class="user-head" alt="">
+            <img :src="item.figureurl" class="user-head" alt="">
             <div class="content">
               <div class="flex">
                 <h5>{{item.userName}}</h5>
@@ -44,7 +44,7 @@
 
 <script>
 import { fetch } from "../../util/fetch";
-import { getUrlParam, transDate } from "../../util/common";
+import { getUrlParam, transDate, changeTitle } from "../../util/common";
 import { Toast } from 'mint-ui';
 export default {
   name: "commodity-detail",
@@ -62,6 +62,7 @@ export default {
     }, (res)=>{
       if(res.info){
         this.info = res.info;
+        changeTitle(this.info.name);
         for(let item of res.evaluate){
           item.times = transDate(item.times);
         }

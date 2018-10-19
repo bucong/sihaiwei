@@ -10,6 +10,7 @@ export function thirdLogin(){
     // 其他浏览器使用QQ
     // window.location.href="https://graph.qq.com/oauth2.0/authorize?client_id=101479867&redirect_uri="+thridLoginUrl.qqEncode+"&response_type=code&scope=get_user_info&state=qq&display=mobile";
     // QQ测试通道
-    window.location.href="https://graph.qq.com/oauth2.0/authorize?client_id=101479867&redirect_uri=http%3a%2f%2fshare.zrpic.com%2fjnwtv-live-cartoon-h5%2ftest.html&response_type=code&scope=get_user_info&state="+thridLoginUrl.qqEncode+"&display=mobile";
+    // window.location.href="https://graph.qq.com/oauth2.0/authorize?client_id=101479867&redirect_uri=http%3a%2f%2fshare.zrpic.com%2fjnwtv-live-cartoon-h5%2ftest.html&response_type=code&scope=get_user_info&state="+thridLoginUrl.qqEncode+"&display=mobile";
+    window.location.href="https://graph.qq.com/oauth2.0/authorize?client_id=101479867&redirect_uri=http%3a%2f%2fshare.zrpic.com%2fjnwtv-live-cartoon-h5%2ftest.html&response_type=code&scope=get_user_info&state="+thridLoginUrl.qqEncode;
   }
 }

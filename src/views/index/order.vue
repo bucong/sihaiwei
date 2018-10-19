@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { handleLocalStorage } from '../../util/common';
+import { handleLocalStorage, changeTitle } from '../../util/common';
 import { fetch } from '../../util/fetch';
 export default {
   name: "order",
@@ -80,6 +80,7 @@ export default {
       }
       this.list = listMap;
     });
+    changeTitle('点餐');
   },
   methods:{
     addCommodity(id){

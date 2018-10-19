@@ -52,6 +52,7 @@
 <script>
 import { fetch } from '@/util/fetch';
 import { Toast } from 'mint-ui';
+import { changeTitle } from '@/util/common';
 export default {
   name: "admin-home",
   data(){
@@ -63,6 +64,9 @@ export default {
       desc: '',
       discount: null
     }
+  },
+  created(){
+    changeTitle('添加菜品');
   },
   methods:{
     subAdd(){

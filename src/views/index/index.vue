@@ -30,7 +30,7 @@
 
 <script>
 import { fetch } from '@/util/fetch';
-import { is_weixn_qq, getUrlParam, handleLocalStorage } from '@/util/common';
+import { is_weixn_qq, getUrlParam, handleLocalStorage, changeTitle } from '@/util/common';
 import { thridLoginUrl } from '@/util/projectData';
 import { Toast, Indicator } from 'mint-ui';
 export default {
@@ -59,6 +59,8 @@ export default {
         this.$router.push({path: '/order'});
       })
     }
+    changeTitle('四海味点餐');
+    //模拟登陆
     handleLocalStorage('set', 'userInfo', JSON.stringify({
       id: 3,
       name: '聪哥',

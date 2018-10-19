@@ -5,8 +5,17 @@
 </template>
 
 <script>
+import { changeTitle } from '@/util/common';
 export default {
-  name: "admin-commodity"
+  name: "admin-commodity",
+  data(){
+    return {
+
+    }
+  },
+  created(){
+    changeTitle('菜品管理');
+  }
 }
 </script>
 
