@@ -2,6 +2,16 @@
   <div class="order">
     <div class="banner">
       <h1>四海味</h1>
+      <div class="store">
+        <i class="iconfont">&#xe653;</i>
+        <select name="" v-model="store">
+          <option value="人民广场店">人民广场店</option>
+          <option value="上海大学店">上海大学店</option>
+          <option value="徐汇店">徐汇店</option>
+          <option value="虹桥店">虹桥店</option>
+          <option value="张江高科店">张江高科店</option>
+        </select>
+      </div>
     </div>
     <div class="order-list">
       <ul>
@@ -57,8 +67,9 @@
 </template>
 
 <script>
-import { handleLocalStorage, changeTitle } from '../../util/common';
-import { fetch } from '../../util/fetch';
+import { handleLocalStorage, changeTitle } from '@/util/common';
+import { fetch } from '@/util/fetch';
+import { Toast } from 'mint-ui';
 export default {
   name: "order",
   data(){
@@ -68,6 +79,7 @@ export default {
       money: 0,
       orderNum: 0,
       cartShow: false, //显示购物车
+      store: '人民广场店'
     }
   },
   created(){
@@ -105,7 +117,35 @@ export default {
       }
     },
     subOrder(){
-
+      if(this.money <= 0){
+        Toast({
+          message: '您还啥都没点呢！',
+          position: 'bottom'
+        })
+      }else{
+        let orderList = [];
+        let subList = this.list;
+        for(let i in subList){
+          if(subList[i].num && subList[i].num !== 0){
+            orderList.push({
+              id: subList[i].id,
+              num: subList[i].num
+            });
+          }
+        }
+        fetch('post', 'order/add', {
+          userId: this.userInfo.id,
+          times: new Date().getTime(),
+          price: this.money,
+          store: this.store,
+          list: JSON.stringify(orderList)
+        }, (res)=>{
+          Toast('下单成功');
+          setTimeout(()=>{
+            this.$router.push({path: '/myOrder'});
+          }, 1000)
+        })
+      }
     }
   }
 }

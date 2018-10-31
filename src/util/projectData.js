@@ -1,5 +1,7 @@
 //服务器地址
 const URL = 'http://localhost:3000/api/';
+//服务器图片地址
+const IMG = 'http://localhost:3000/public/';
 
 //三方登录回调地址
 const thridLoginUrl = {
@@ -11,4 +13,4 @@ const thridLoginUrl = {
   // qq: 'http://share.zrpic.com/jnwtv-live-cartoon-h5/'
 };
 
-export { URL, thridLoginUrl };
+export { URL, IMG, thridLoginUrl };

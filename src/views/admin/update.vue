@@ -1,6 +1,6 @@
 <template>
   <div class="admin-add">
-    <h3>新增菜品</h3>
+    <h3>修改菜品</h3>
     <ul>
       <li>
         <p>类别：</p>
@@ -52,11 +52,12 @@
 <script>
 import { fetch } from '@/util/fetch';
 import { Toast } from 'mint-ui';
-import { changeTitle } from '@/util/common';
+import { changeTitle, getUrlParam } from '@/util/common';
 export default {
   name: "admin-home",
   data(){
     return {
+      id: '',
       addType: 1,
       name: '',
       price: '',
@@ -66,7 +67,18 @@ export default {
     }
   },
   created(){
-    changeTitle('添加菜品');
+    changeTitle('修改菜品');
+    this.id = getUrlParam('id');
+    fetch('get', 'commodity/info', {
+      id: this.id
+    }, (res)=>{
+      this.addType = res.type;
+      this.name = res.name;
+      this.price = res.price;
+      this.img = res.img;
+      this.desc = res.desc;
+      this.discount = res.discount;
+    })
   },
   methods:{
     subAdd(){
@@ -79,7 +91,8 @@ export default {
       }else if(this.desc === ''){
         Toast('请填写菜品简介');
       }else{
-        fetch('post', 'commodity/add', {
+        fetch('post', 'commodity/update', {
+          id: this.id,
           type: this.addType,
           name: this.name,
           price: this.price,
@@ -87,13 +100,7 @@ export default {
           desc: this.desc,
           discount: this.discount
         }, (res)=>{
-          Toast(res);
-          this.addType = 1;
-          this.name = '';
-          this.price = '';
-          this.img = '';
-          this.desc = '';
-          this.discount = null;
+          Toast(res.info);
         })
       }
     }

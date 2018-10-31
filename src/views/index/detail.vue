@@ -60,17 +60,21 @@ export default {
     fetch('get', 'commodity/info', {
       id: this.id
     }, (res)=>{
-      if(res.info){
-        this.info = res.info;
+      if(res){
+        this.info = res;
         changeTitle(this.info.name);
-        for(let item of res.evaluate){
-          item.times = transDate(item.times);
-        }
-        this.evaluate = res.evaluate;
       }else{
         Toast('该菜品不存在');
       }
-    })
+    });
+    fetch('get', 'commodity/evaluate', {
+      id: this.id
+    }, (res)=>{
+      for(let item of res){
+        item.times = transDate(item.times);
+      }
+      this.evaluate = res;
+    });
   }
 }
 </script>

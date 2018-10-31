@@ -7,11 +7,15 @@ const Index = () => import('@/views/index/index');
 const Order = () => import('@/views/index/order');
 const Detail = () => import('@/views/index/detail');
 const MyOrder = () => import('@/views/index/myOrder');
+const OrderDetail = () => import('@/views/index/orderDetail');
+const Evaluate = () => import('@/views/index/evaluate');
 
 //后台管理
 const Admin = () => import('@/views/admin/index');
 const AdminHome = () => import('@/views/admin/home');
 const AdminCommodity = () => import('@/views/admin/commodity');
+const AdminUpdate = () => import('@/views/admin/update');
+
 const AdminAdd = () => import('@/views/admin/add');
 const adminLogin = () => import('@/views/admin/login');
 
@@ -47,6 +51,14 @@ export default new Router({
       path: '/myOrder',
       name: 'myOrder',
       component: MyOrder
+    }, {
+      path: '/orderDetail',
+      name: 'orderDetail',
+      component: OrderDetail
+    }, {
+      path: '/evaluate',
+      name: 'evaluate',
+      component: Evaluate
     },
     //后台管理系统
     {
@@ -70,6 +82,10 @@ export default new Router({
           path: 'commodity',
           name: 'commodity',
           component: AdminCommodity
+        }, {
+          path: 'update',
+          name: 'update',
+          component: AdminUpdate
         }, {
           path: 'add',
           name: 'add',
