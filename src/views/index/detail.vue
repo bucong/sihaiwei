@@ -23,12 +23,12 @@
             <img :src="item.figureurl" class="user-head" alt="">
             <div class="content">
               <div class="flex">
-                <h5>{{item.userName}}</h5>
+                <h5>{{item.name}}</h5>
                 <span>{{item.times}}</span>
               </div>
               <p>{{item.content}}</p>
               <div class="imgs" v-if="item.imgs">
-                <div v-for="img in item.imgs"></div>
+                <div v-for="img in item.imgs.split(',')" class="imgbg" :style="{backgroundImage: 'url('+IMG + img+')'}"></div>
               </div>
             </div>
           </li>
@@ -44,6 +44,7 @@
 
 <script>
 import { fetch } from "../../util/fetch";
+import { IMG } from "../../util/projectData";
 import { getUrlParam, transDate, changeTitle } from "../../util/common";
 import { Toast } from 'mint-ui';
 export default {
@@ -52,7 +53,8 @@ export default {
     return {
       id: '',
       info: {},
-      evaluate: []
+      evaluate: [],
+      IMG: IMG
     }
   },
   created(){

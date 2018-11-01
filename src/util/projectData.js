@@ -1,7 +1,7 @@
 //服务器地址
 const URL = 'http://localhost:3000/api/';
 //服务器图片地址
-const IMG = 'http://localhost:3000/public/';
+const IMG = 'http://localhost:3000/public/img/';
 
 //三方登录回调地址
 const thridLoginUrl = {

@@ -455,6 +455,16 @@ a, .tap{
           font-size: .26rem;
           color: #666;
         }
+        .imgs{
+          display: flex;
+          align-items: center;
+          padding-top: .2rem;
+          div{
+            margin-right: .2rem;
+            width: 1.2rem;
+            height: 1.2rem;
+          }
+        }
       }
     }
   }
@@ -465,6 +475,7 @@ a, .tap{
     text-align: center;
     font-size: .4rem;
     line-height: .6rem;
+    margin-bottom: .2rem;
   }
   .info{
     .imgbg{
@@ -478,8 +489,81 @@ a, .tap{
         font-size: .28rem;
       }
       .star{
-
+        width: 3rem;
+        height: .5rem;
+        background-image: url("../../../static/img/star.png");
+        background-size: cover;
+        background-position-x: 0;
+        background-position-y: 0;
+        span{
+          display: block;
+          width: .52rem;
+          height: .52rem;
+        }
       }
+      .star1{
+        background-position-y: -2.4rem;
+      }
+      .star2{
+        background-position-y: -1.75rem;
+      }
+      .star3{
+        background-position-y: -1.14rem;
+      }
+      .star4{
+        background-position-y: -0.56rem;
+      }
+      .star5{
+        background-position-y: 0.01rem;
+      }
+    }
+  }
+  .evaluate-content{
+    padding: .3rem 0;
+    textarea{
+      width: 100%;
+      height: 3rem;
+      border: 1px solid #eee;
+      font-size: .28rem;
+      resize: none;
+      padding: .2rem;
+      box-sizing: border-box;
+    }
+  }
+  #upload{
+    display: none;
+  }
+  .imgs{
+    display: flex;
+    flex-wrap: wrap;
+    li{
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: .2rem;
+    }
+    .add{
+      label{
+        display: block;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        font-size: .6rem;
+        border: 1px solid #eee;
+        color: #666;
+      }
+    }
+  }
+  .sub{
+    text-align: center;
+    padding: .4rem 0;
+    button{
+      width: 2rem;
+      line-height: .5rem;
+      color: #fff;
+      background: #ff8a00;
+      border: none;
+      border-radius: .3rem;
+      font-size: .26rem;
     }
   }
 }

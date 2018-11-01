@@ -5,20 +5,36 @@
       <div class="imgbg" :style="{backgroundImage: 'url('+info.img+')'}"></div>
       <div class="content">
         <h5>{{info.name}}</h5>
-        <div class="star">
-          五颗星
+        <div class="star flex" :class="'star'+star">
+          <span class="choose-star" @click="chooseStar(1)"></span>
+          <span class="choose-star" @click="chooseStar(2)"></span>
+          <span class="choose-star" @click="chooseStar(3)"></span>
+          <span class="choose-star" @click="chooseStar(4)"></span>
+          <span class="choose-star" @click="chooseStar(5)"></span>
         </div>
       </div>
     </div>
-    <div>菜品id：{{id}}</div>
-    <div>订单orderId：{{orderId}}</div>
-    <div>用户id：{{userInfo.id}}</div>
+    <div class="evaluate-content">
+      <textarea name="" cols="30" rows="10" v-model="content"></textarea>
+    </div>
+    <input type="file" id="upload" @change="uploadFile($event)" multiple="multiple" />
+    <ul class="imgs">
+      <li class="add">
+        <label for="upload">+</label>
+      </li>
+      <li v-for="item in imgs" class="imgbg" :style="{backgroundImage: 'url('+IMG+item+')'}"></li>
+    </ul>
+    <div class="sub">
+      <button @click="sub">提交</button>
+    </div>
   </div>
 </template>
 
 <script>
 import { changeTitle, handleLocalStorage, getUrlParam } from '@/util/common';
 import { fetch } from '@/util/fetch';
+import { IMG } from '@/util/projectData';
+import { Toast } from 'mint-ui';
 export default {
   name: "evaluate-page",
   data(){
@@ -29,7 +45,8 @@ export default {
       info: {},
       content: '',
       star: 5,
-      imgs: []
+      imgs: [],
+      IMG: IMG
     }
   },
   created(){
@@ -48,16 +65,32 @@ export default {
     });
   },
   methods:{
+    chooseStar(n){
+      this.star = n;
+    },
+    uploadFile(event){
+      if(this.imgs.length < 3){
+        this.file = event.target.files[0];
+        let param = new FormData(); // 创建form对象
+        param.append('imgFile', this.file);//对应后台接收图片名
+        fetch('post', 'upload/img', param, (res)=>{
+          this.imgs.push(res);
+        })
+      }else{
+        Toast('最多上传三张图片哦!');
+      }
+    },
     sub(){
       if(this.content === ''){
         Toast('请填写评价内容');
       }else{
         fetch('post', 'commodity/evaluateSub', {
           cId: this.id,
+          orderId: this.orderId,
           userId: this.userInfo.id,
           content: this.content,
           star: this.star,
-          imgs: this.imgs.split(','),
+          imgs: this.imgs.join(','),
           times: new Date().getTime()
         }, (res)=>{
           Toast({message:'评价成功', duration: 1000});
