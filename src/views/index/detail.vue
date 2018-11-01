@@ -26,6 +26,7 @@
                 <h5>{{item.name}}</h5>
                 <span>{{item.times}}</span>
               </div>
+              <div class="star" :class="'star'+item.star"></div>
               <p>{{item.content}}</p>
               <div class="imgs" v-if="item.imgs">
                 <div v-for="img in item.imgs.split(',')" class="imgbg" :style="{backgroundImage: 'url('+IMG + img+')'}"></div>
