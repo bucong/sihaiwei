@@ -26,6 +26,7 @@
           <div class="operate">
             <button v-if="item.state === 1" @click="cancelOrder(item.id)">取消订单</button>
             <button v-if="item.state === 2" @click="finishOrder(item.id)">完成订单</button>
+            <button v-if="item.state === 3" @click="deleteOrder(item.id)">删除订单</button>
             <router-link :to="{path: '/orderDetail?id='+item.id}" v-else-if="item.state === 4">去评价</router-link>
           </div>
         </li>
@@ -43,7 +44,7 @@
 <script>
 import { changeTitle, handleLocalStorage, transAllDate } from '@/util/common';
 import { fetch } from '@/util/fetch';
-import { MessageBox } from 'mint-ui';
+import { MessageBox, Toast } from 'mint-ui';
 export default {
   name: "myOrder",
   data(){
@@ -88,6 +89,25 @@ export default {
           if(item.id === id){
             item.state = 4;
           }
+        }
+      })
+    },
+    deleteOrder(id){
+      MessageBox.confirm('确定执行此操作?').then(action => {
+        if(action){
+          fetch('get', 'order/delete', {
+            id: id
+          }, (res)=>{
+            Toast({
+              message: '删除订单成功',
+              position: 'bottom'
+            });
+            for(let i=0;i<this.list.length;i++){
+              if(this.list[i].id === id){
+                this.list.splice(i,1);
+              }
+            }
+          })
         }
       })
     }

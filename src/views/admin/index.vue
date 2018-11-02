@@ -25,6 +25,12 @@
               <p>新增</p>
             </router-link>
           </li>
+          <li>
+            <router-link to="/admin/manage">
+              <i class="iconfont">&#xe60c;</i>
+              <p>配置</p>
+            </router-link>
+          </li>
         </ul>
       </div>
       <div class="admin-content">

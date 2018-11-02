@@ -873,3 +873,43 @@ a, .tap{
     }
   }
 }
+.admin-manage{
+  h1{
+    text-align: center;
+    font-size: .4rem;
+    margin-bottom: .2rem;
+  }
+  #upload{
+    display: none;
+  }
+  ul{
+    padding: 0 1rem;
+    li{
+      margin-bottom: .3rem;
+      label{
+        display: block;
+        width: 2rem;
+        height: 1.6rem;
+      }
+      .operate{
+        width: 1.4rem;
+        .up{
+          color: #4caf50;
+        }
+        .down{
+          color: #ff6b04;
+        }
+      }
+    }
+    li:first-child{
+      .up{
+        display: none;
+      }
+    }
+    li:last-child{
+      .down{
+        display: none;
+      }
+    }
+  }
+}

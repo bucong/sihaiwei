@@ -5,23 +5,8 @@
     </div>
     <h2>四海味点餐</h2>
     <ul>
-      <li>
-        <img src="../../../static/img/index-list1.png" alt="">
-      </li>
-      <li>
-        <img src="../../../static/img/index-list2.png" alt="">
-      </li>
-      <li>
-        <img src="../../../static/img/index-list3.png" alt="">
-      </li>
-      <li>
-        <img src="../../../static/img/index-list4.png" alt="">
-      </li>
-      <li>
-        <img src="../../../static/img/index-list5.png" alt="">
-      </li>
-      <li>
-        <img src="../../../static/img/index-list6.png" alt="">
+      <li v-for="item in list">
+        <img :src="IMG+item.img" alt="">
       </li>
     </ul>
     <div class="go-order"><router-link to="/order">开始点餐</router-link></div>
@@ -33,14 +18,21 @@ import { fetch } from '@/util/fetch';
 import { is_weixn_qq, getUrlParam, handleLocalStorage, changeTitle } from '@/util/common';
 import { thridLoginUrl } from '@/util/projectData';
 import { Toast, Indicator } from 'mint-ui';
+import { IMG } from '@/util/projectData';
 export default {
   name: 'index',
   data () {
     return {
-
+      list: [],
+      IMG: IMG
     }
   },
   created(){
+    fetch('get', 'img/list', {
+      imgType: 1
+    }, (res)=>{
+      this.list = res;
+    });
     let code = getUrlParam('code');
     let userInfo = handleLocalStorage('get', 'userInfo');
     if(code && !userInfo){

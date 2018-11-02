@@ -15,6 +15,7 @@ const Admin = () => import('@/views/admin/index');
 const AdminHome = () => import('@/views/admin/home');
 const AdminCommodity = () => import('@/views/admin/commodity');
 const AdminUpdate = () => import('@/views/admin/update');
+const AdminManage = () => import('@/views/admin/manage');
 
 const AdminAdd = () => import('@/views/admin/add');
 const adminLogin = () => import('@/views/admin/login');
@@ -90,6 +91,10 @@ export default new Router({
           path: 'add',
           name: 'add',
           component: AdminAdd
+        }, {
+          path: 'manage',
+          name: 'manage',
+          component: AdminManage
         }
       ]
     }, {
