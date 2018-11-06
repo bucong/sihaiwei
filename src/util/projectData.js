@@ -7,6 +7,7 @@ const IMG = 'http://47.100.51.191:3000/public/img/';
 const thridLoginUrl = {
   wxEncode: 'http%3a%2f%2f47.100.51.191%2fsihaiwei%2f',
 
+  // qqEncode: 'http%3a%2f%2flocalhost%3a8088%2fsihaiwei%2f',
   qqEncode: 'http%3a%2f%2f47.100.51.191%2fsihaiwei%2f',
 
   qq: 'http://share.zrpic.com/jnwtv-live-cartoon-h5/test.html'
