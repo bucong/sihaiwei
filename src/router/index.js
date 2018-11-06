@@ -26,7 +26,7 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  // base: 'sihaiwei',
+  base: 'sihaiwei',
   routes: [
     {
       path: '/',
