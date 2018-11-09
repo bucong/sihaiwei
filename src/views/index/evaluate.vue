@@ -33,6 +33,7 @@
 <script>
 import { changeTitle, handleLocalStorage, getUrlParam } from '@/util/common';
 import { fetch } from '@/util/fetch';
+import { qiniuUpload } from '@/plugins/qiniuUpload';
 import { IMG } from '@/util/projectData';
 import { Toast } from 'mint-ui';
 export default {
@@ -70,6 +71,9 @@ export default {
     },
     uploadFile(event){
       if(this.imgs.length < 3){
+        // qiniuUpload('BC', event, (res)=>{
+        //   console.log(res);
+        // })
         this.file = event.target.files[0];
         let param = new FormData(); // 创建form对象
         param.append('imgFile', this.file);//对应后台接收图片名

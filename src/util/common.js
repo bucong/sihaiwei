@@ -76,6 +76,19 @@ export function transAllDate(dateStr){
   return (Y+'-'+M+'-'+D+' '+H+':'+m);
 }
 /**
+ * 获取当前时间
+ */
+export function now_times(){
+  let date = new Date();
+  let Y = date.getFullYear();
+  let M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
+  let D = date.getDate()<10 ? '0'+date.getDate() : date.getDate();
+  let H = date.getHours()<10 ? '0'+date.getHours() : date.getHours();
+  let m = date.getMinutes()<10 ? '0'+date.getMinutes() : date.getMinutes();
+  let s = date.getSeconds()<10 ? '0'+date.getSeconds() : date.getSeconds();
+  return (Y+''+M+''+D+''+H+''+m+''+s);
+}
+/**
  * IOS修改浏览器title
  */
 export function changeTitle(title) {
