@@ -1,6 +1,6 @@
 <template>
   <div class="admin-manage">
-    <h1>首页展示图配置</h1>
+    <h1>首页展示图</h1>
     <input type="file" id="upload" @change="uploadFile($event)" multiple="multiple" />
     <ul>
       <li v-for="(item, i) in list" class="flex">

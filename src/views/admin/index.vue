@@ -27,6 +27,12 @@
           </li>
           <li>
             <router-link to="/admin/manage">
+              <i class="iconfont">&#xe613;</i>
+              <p>图片</p>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/admin/config">
               <i class="iconfont">&#xe60c;</i>
               <p>配置</p>
             </router-link>

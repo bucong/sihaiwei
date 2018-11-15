@@ -4,14 +4,6 @@ import { Toast } from 'mint-ui';
 import * as qiniu from 'qiniu-js';
 
 export function qiniuUpload(module, event, cb){
-  let imgfile = event.target.files[0];
-  let key = '';
-  let pointIndex = imgfile.name.lastIndexOf(".") ;
-  let num = Math.floor(Math.random()*899999999+100000000);
-  let suffix = imgfile.name.substring(pointIndex,imgfile.name.length);
-  let time = now_times();
-  key = module + time + num + suffix;
-  console.log(key);
   let putExtra = {
     fname: "",
     params: {},
@@ -33,10 +25,20 @@ export function qiniuUpload(module, event, cb){
       cb(res);
     }
   };
+  let imgfile = event.target.files;
   fetch('get', 'qiniu/token', {},(response)=>{
-    let observable = qiniu.upload(imgfile, key, response, putExtra, config);
-    let subscription = observable.subscribe(observer); // 上传开始
-    //subscription.unsubscribe(); // 上传取消
+    for(let item of imgfile){
+      let key = '';
+      let pointIndex = item.name.lastIndexOf(".") ;
+      let num = Math.floor(Math.random()*899999999+100000000);
+      let suffix = item.name.substring(pointIndex,item.name.length);
+      let time = now_times();
+      key = module + time + num + suffix;
+      console.log(key);
+      let observable = qiniu.upload(item, key, response, putExtra, config);
+      let subscription = observable.subscribe(observer); // 上传开始
+      //subscription.unsubscribe(); // 上传取消
+    }
   });
 }
 

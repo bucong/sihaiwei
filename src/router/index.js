@@ -16,6 +16,7 @@ const AdminHome = () => import('@/views/admin/home');
 const AdminCommodity = () => import('@/views/admin/commodity');
 const AdminUpdate = () => import('@/views/admin/update');
 const AdminManage = () => import('@/views/admin/manage');
+const AdminConfig = () => import('@/views/admin/config');
 
 const AdminAdd = () => import('@/views/admin/add');
 const adminLogin = () => import('@/views/admin/login');
@@ -26,7 +27,7 @@ Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: 'sihaiwei',
+  // base: 'sihaiwei',
   routes: [
     {
       path: '/',
@@ -95,6 +96,10 @@ export default new Router({
           path: 'manage',
           name: 'manage',
           component: AdminManage
+        }, {
+          path: 'config',
+          name: 'config',
+          component: AdminConfig
         }
       ]
     }, {
