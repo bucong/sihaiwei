@@ -22,6 +22,7 @@ export function qiniuUpload(module, event, cb){
       Toast('上传失败，请重新上传');
     },
     complete(res){
+      console.log(res);
       cb(res);
     }
   };

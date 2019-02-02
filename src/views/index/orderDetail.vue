@@ -2,7 +2,7 @@
   <div class="order-detail">
     <div class="padding">
       <div class="store">
-        <img src="../../../static/img/logo/logo.png" alt="">
+        <img src="http://qiniu.jnwtv.com/H520190202154301650991279.png" alt="">
         <h3>{{info.store}}</h3>
       </div>
       <div class="state">
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="share">
-      <img src="../../../static/img/share.png" width="100%" alt="">
+      <img src="http://qiniu.jnwtv.com/H520190202154716670201018.png" width="100%" alt="">
     </div>
   </div>
 </template>

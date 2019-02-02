@@ -13,7 +13,7 @@ if(handleLocalStorage('get', 'uuid')){
   handleLocalStorage('set', 'uuid', uuid);
 }
 
-export function fetch (method, url, data, cb) {
+function fetch (method, url, data, cb) {
   let newurl = URL + url;
   if (method === 'get') {
     if(data !== ''){
@@ -57,3 +57,5 @@ export function fetch (method, url, data, cb) {
     })
   }
 }
+export { fetch };
+

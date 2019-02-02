@@ -1,6 +1,6 @@
 <template>
   <div class="error contain">
-    <img src="../../../static/img/logo/logo.png" alt="">
+    <img src="http://qiniu.jnwtv.com/H520190202154301650991279.png" alt="">
     <p>{{msg}}</p>
     <router-link to="/">返回首页</router-link>
   </div>

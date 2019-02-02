@@ -6,7 +6,7 @@
           <router-link :to="{path: '/orderDetail?id='+item.id}">
             <div class="store flex">
               <div class="flex">
-                <img src="../../../static/img/logo/logo.png" alt="">
+                <img src="http://qiniu.jnwtv.com/H520190202154301650991279.png" alt="">
                 <h3>{{item.store}}</h3>
               </div>
               <div class="state">
@@ -34,7 +34,7 @@
     </div>
     <div v-else>
       <div class="no-data">
-        <img src="../../../static/img/no-data.jpg" alt="">
+        <img src="http://qiniu.jnwtv.com/H520190202154530344083629.jpg" alt="">
         <p>空空如也~</p>
       </div>
     </div>

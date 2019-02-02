@@ -21,7 +21,11 @@
       </li>
       <li>
         <p>图片：</p>
-        <input type="text" v-model="img" />
+        <div class="img-box">
+          <input type="file" id="upload" @change="uploadFile($event)" multiple="multiple" />
+          <label for="upload">+</label>
+          <div class="imgbg" :style="{backgroundImage: 'url('+showImg+')'}"></div>
+        </div>
       </li>
       <li>
         <p>简介：</p>
@@ -52,7 +56,8 @@
 <script>
 import { fetch } from '@/util/fetch';
 import { Toast } from 'mint-ui';
-import { changeTitle, getUrlParam } from '@/util/common';
+import { qiniuUpload } from '@/plugins/qiniuUpload';
+import { changeTitle, getUrlParam, handleLocalStorage } from '@/util/common';
 export default {
   name: "admin-home",
   data(){
@@ -62,6 +67,7 @@ export default {
       name: '',
       price: '',
       img: '',
+      showImg: '',
       desc: '',
       discount: null
     }
@@ -76,11 +82,20 @@ export default {
       this.name = res.name;
       this.price = res.price;
       this.img = res.img;
+      this.showImg = res.showImg;
       this.desc = res.desc;
       this.discount = res.discount;
     })
   },
   methods:{
+    uploadFile(event){
+      let config = JSON.parse(handleLocalStorage('get', 'configInfo'));
+      qiniuUpload('BC', event, (res)=>{
+        console.log(res);
+        this.img = res.key;
+        this.showImg = config.qiniuDomain + res.key;
+      })
+    },
     subAdd(){
       if(this.name === ''){
         Toast('请填写菜品名称');

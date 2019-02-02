@@ -22,7 +22,7 @@
       <li class="add">
         <label for="upload">+</label>
       </li>
-      <li v-for="item in imgs" class="imgbg" :style="{backgroundImage: 'url('+IMG+item+')'}"></li>
+      <li v-for="item in showImgs" class="imgbg" :style="{backgroundImage: 'url('+item+')'}"></li>
     </ul>
     <div class="sub">
       <button @click="sub">提交</button>
@@ -34,7 +34,6 @@
 import { changeTitle, handleLocalStorage, getUrlParam } from '@/util/common';
 import { fetch } from '@/util/fetch';
 import { qiniuUpload } from '@/plugins/qiniuUpload';
-import { IMG } from '@/util/projectData';
 import { Toast } from 'mint-ui';
 export default {
   name: "evaluate-page",
@@ -47,7 +46,7 @@ export default {
       content: '',
       star: 5,
       imgs: [],
-      IMG: IMG
+      showImgs: []
     }
   },
   created(){
@@ -70,16 +69,13 @@ export default {
       this.star = n;
     },
     uploadFile(event){
+      let config = JSON.parse(handleLocalStorage('get', 'configInfo'));
       if(this.imgs.length < 3){
         qiniuUpload('BC', event, (res)=>{
           console.log(res);
+          this.imgs.push(res.key);
+          this.showImgs.push(config.qiniuDomain + res.key);
         })
-        // this.file = event.target.files[0];
-        // let param = new FormData(); // 创建form对象
-        // param.append('imgFile', this.file);//对应后台接收图片名
-        // fetch('post', 'upload/img', param, (res)=>{
-        //   this.imgs.push(res);
-        // })
       }else{
         Toast('最多上传三张图片哦!');
       }

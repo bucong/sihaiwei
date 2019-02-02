@@ -1,7 +1,7 @@
 <template>
   <div class="admin-login">
     <div class="logo">
-      <img src="../../../static/img/logo/logo-big.png" alt="">
+      <img src="http://qiniu.jnwtv.com/H520190202154357485378821.png" alt="">
     </div>
     <ul class="input-box">
       <li class="flex">

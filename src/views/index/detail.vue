@@ -1,8 +1,8 @@
 <template>
   <div class="commodity-detail">
     <div class="banner">
-      <div class="imgbg back" :style="{backgroundImage: 'url('+info.img+')'}"></div>
-      <img :src="info.img" alt="">
+      <div class="imgbg back" :style="{backgroundImage: 'url('+info.showImg+')'}"></div>
+      <img :src="info.showImg" alt="">
     </div>
     <div class="info">
       <h3>{{info.name}}</h3>
@@ -29,14 +29,14 @@
               <div class="star" :class="'star'+item.star"></div>
               <p>{{item.content}}</p>
               <div class="imgs" v-if="item.imgs">
-                <div v-for="img in item.imgs.split(',')" class="imgbg" :style="{backgroundImage: 'url('+IMG + img+')'}"></div>
+                <div v-for="img in item.imgs" class="imgbg" :style="{backgroundImage: 'url('+ img+')'}"></div>
               </div>
             </div>
           </li>
         </ul>
       </div>
       <div v-else class="no-data">
-        <img src="../../../static/img/no-data.jpg" alt="">
+        <img src="http://qiniu.jnwtv.com/H520190202154530344083629.jpg" alt="">
         <p>空空如也~</p>
       </div>
     </div>
@@ -45,7 +45,6 @@
 
 <script>
 import { fetch } from "../../util/fetch";
-import { IMG } from "../../util/projectData";
 import { getUrlParam, transDate, changeTitle } from "../../util/common";
 import { Toast } from 'mint-ui';
 export default {
@@ -54,8 +53,7 @@ export default {
     return {
       id: '',
       info: {},
-      evaluate: [],
-      IMG: IMG
+      evaluate: []
     }
   },
   created(){

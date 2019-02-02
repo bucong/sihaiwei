@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
     <div class="header">
-      <img src="../../../static/img/logo/logo.png" alt="">
+      <img src="http://qiniu.jnwtv.com/H520190202154301650991279.png" alt="">
       <h5>四海味后台管理</h5>
     </div>
     <div class="admin-body">

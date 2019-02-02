@@ -1,12 +1,12 @@
 <template>
   <div class="index">
     <div class="banner">
-      <img src="../../../static/img/banner.png" width="100%" alt="">
+      <img src="http://qiniu.jnwtv.com/H520190202154052492750100.png" width="100%" alt="">
     </div>
     <h2>四海味点餐</h2>
     <ul>
       <li v-for="item in list">
-        <img :src="IMG+item.img" alt="">
+        <img :src="item.img" alt="">
       </li>
     </ul>
     <div class="go-order"><router-link to="/order">开始点餐</router-link></div>
@@ -18,13 +18,11 @@ import { fetch } from '@/util/fetch';
 import { is_weixn_qq, getUrlParam, handleLocalStorage, changeTitle } from '@/util/common';
 import { thridLoginUrl } from '@/util/projectData';
 import { Toast, Indicator } from 'mint-ui';
-import { IMG } from '@/util/projectData';
 export default {
   name: 'index',
   data () {
     return {
-      list: [],
-      IMG: IMG
+      list: []
     }
   },
   created(){

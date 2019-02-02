@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { changeTitle } from '@/util/common';
+import { changeTitle, handleLocalStorage } from '@/util/common';
 import { fetch } from '@/util/fetch';
 import { Toast, Indicator } from 'mint-ui';
 export default {
@@ -26,15 +26,20 @@ export default {
   },
   created(){
     changeTitle('配置信息');
-    fetch('get', 'config/info', {}, res => {
-      this.imgURL = res.imgURL;
-    });
+    let config = JSON.parse(handleLocalStorage('get', 'configInfo'));
+    console.log(config);
+    this.imgURL = config.qiniuDomain;
   },
   methods:{
     sub(){
       fetch('post', 'config/save', {
         imgURL: this.imgURL
-      }, res => {})
+      }, res => {
+        Toast({
+          position: 'bottom',
+          message: '修改成功'
+        })
+      })
     }
   }
 }

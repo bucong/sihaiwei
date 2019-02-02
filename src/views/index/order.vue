@@ -45,7 +45,7 @@
           </li>
         </ul>
         <div class="no-data" v-else>
-          <img src="../../../static/img/no-data.jpg" alt="">
+          <img src="http://qiniu.jnwtv.com/H520190202154530344083629.jpg" alt="">
           <p>空空如也~</p>
         </div>
       </div>
@@ -57,7 +57,7 @@
         <h2>{{userInfo.name}}</h2>
       </router-link>
       <div class="content" @click="cartShow = true">
-        <img src="../../../static/img/icon-cart.png" alt="">
+        <img src="http://qiniu.jnwtv.com/H520190202154459999734968.png" alt="">
         <h5>￥{{money.toFixed(2)}}</h5>
         <span v-show="orderNum > 0">{{orderNum}}</span>
       </div>
